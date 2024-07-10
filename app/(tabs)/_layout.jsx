@@ -1,11 +1,16 @@
 import { View, Text } from 'react-native'
-import React from 'react'
+import { Tabs, Redirect } from 'expo-router'
+
 
 const Layout = () => {
   return (
-    <View>
-      <Text>Layout</Text>
-    </View>
+    <>
+      <Tabs>
+        <Tabs.Screen
+        name="home"
+        />
+      </Tabs>
+    </>
   )
 }
 

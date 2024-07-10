@@ -8,14 +8,14 @@ export default function App() {
     <View className="flex-1 items-center justify-center bg-white">
       <Text className="text-3xl font-pblack">Aura</Text>
       <StatusBar style="auto" />
-      <Link href="/profile" style={{
+      <Link href="/home" style={{
         color: 'white',
         marginTop: 20,
         backgroundColor: 'blue',
         padding: 10,
         borderRadius: 50,
         textDecoration: 'none',
-      }}>Go to Profile</Link>
+      }}>Home</Link>
     </View>
   );
 }
