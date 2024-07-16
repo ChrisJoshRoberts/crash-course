@@ -9,15 +9,15 @@ export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView contentContainerStyle={{height: '100%'}}>
-        <View className="w-full h-full items-center px-4">
+        <View className="w-full h-full items-center justify-center px-4">
           <Image
           source={images.logo}
-          className="w-48 h-48"
+          className="w-28 h-28"
           resizeMode='contain'
           />
           <Image
           source={images.cards}
-          className="max-w-[380px] w-full h-[300px]"
+          className="max-w-[380px] w-full h-[250px]"
           resizeMode='contain'
           />
           <View className="relative mt-5">
@@ -41,6 +41,7 @@ export default function App() {
             />
         </View>
       </ScrollView>
+      <StatusBar backgroundColor='#161622' style='light' />
     </SafeAreaView>
   );
 }
