@@ -5,7 +5,6 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { images } from '../constants';
 import CustomButton from '../components/CustomButton';
 
-
 export default function App() {
   return (
     <SafeAreaView className="bg-primary h-full">
@@ -34,7 +33,12 @@ export default function App() {
             <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">Where creativity meets innovation:
               Embark on a journey of endless possibilities with Aura.
             </Text>
-            <CustomButton />
+
+            <CustomButton
+            title="Continue with Email"
+            handlePress={() => { console.log('Email') }}
+            containerStyles="w-full mt-7"
+            />
         </View>
       </ScrollView>
     </SafeAreaView>
