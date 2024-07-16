@@ -30,6 +30,12 @@ const Layout = () => {
         tabBarActiveTintColor: "#FFA001",
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
+          tabBarStyle: {
+            backgroundColor: "#161622",
+            borderTopWidth: 1,
+            borderTopColor: "#232533",
+            height: 100,
+          }
       }}
       >
         <Tabs.Screen
@@ -37,7 +43,7 @@ const Layout = () => {
         options={{
           title: 'Home',
           headerShown: false,
-          tabBarIcon: (color, focused) => (
+          tabBarIcon: ({color, focused}) => (
             <TabIcon
               icon= {icons.home}
               color={color}
@@ -52,7 +58,7 @@ const Layout = () => {
         options={{
           title: 'Bookmark',
           headerShown: false,
-          tabBarIcon: (color, focused) => (
+          tabBarIcon: ({color, focused}) => (
             <TabIcon
               icon= {icons.bookmark}
               color={color}
@@ -67,7 +73,7 @@ const Layout = () => {
         options={{
           title: 'Create',
           headerShown: false,
-          tabBarIcon: (color, focused) => (
+          tabBarIcon: ({color, focused}) => (
             <TabIcon
               icon= {icons.plus}
               color={color}
@@ -82,7 +88,7 @@ const Layout = () => {
         options={{
           title: 'Profile',
           headerShown: false,
-          tabBarIcon: (color, focused) => (
+          tabBarIcon: ({color, focused}) => (
             <TabIcon
               icon= {icons.profile}
               color={color}

@@ -1,21 +1,42 @@
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { ScrollView, Text, View, Image } from 'react-native';
 import { Link } from 'expo-router';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { images } from '../constants';
+import CustomButton from '../components/CustomButton';
 
 
 export default function App() {
   return (
-    <View className="flex-1 items-center justify-center bg-white">
-      <Text className="text-3xl font-pblack">Aura</Text>
-      <StatusBar style="auto" />
-      <Link href="/home" style={{
-        color: 'white',
-        marginTop: 20,
-        backgroundColor: 'blue',
-        padding: 10,
-        borderRadius: 50,
-        textDecoration: 'none',
-      }}>Home</Link>
-    </View>
+    <SafeAreaView className="bg-primary h-full">
+      <ScrollView contentContainerStyle={{height: '100%'}}>
+        <View className="w-full h-full items-center px-4">
+          <Image
+          source={images.logo}
+          className="w-48 h-48"
+          resizeMode='contain'
+          />
+          <Image
+          source={images.cards}
+          className="max-w-[380px] w-full h-[300px]"
+          resizeMode='contain'
+          />
+          <View className="relative mt-5">
+            <Text className="text-3xl text-white font-bold text-center">Discover endless possibilities with{' '}
+            <Text className="text-secondary-200">Aura</Text>
+            </Text>
+            <Image
+            source={images.path}
+            className="w-[136px] h-[15px] absolute -bottom-2 -right-8"
+            resizeMode='contain'
+            />
+          </View>
+            <Text className="text-sm font-pregular text-gray-100 mt-7 text-center">Where creativity meets innovation:
+              Embark on a journey of endless possibilities with Aura.
+            </Text>
+            <CustomButton />
+        </View>
+      </ScrollView>
+    </SafeAreaView>
   );
 }
