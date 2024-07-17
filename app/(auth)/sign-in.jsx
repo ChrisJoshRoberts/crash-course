@@ -3,17 +3,21 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from "../../constants";
 import FormField from '../../components/FormField';
+import CustomButton from '../../components/CustomButton';
 import { useState } from 'react';
+import { Link } from 'expo-router';
 
 const signIn = () => {
   const [form, setForm] = useState({
     email: '',
     password: '',
   })
+  const [isSumbitting, setisSumbitting] = useState(false)
+  const submit = () => {}
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
-        <View className="w-full justify-center h-full px-4 my-6">
+        <View className="w-full justify-center min-h-[95vh] px-4 my-6">
           <Image
           source={images.logo}
           resizeMode='contain'
@@ -23,17 +27,26 @@ const signIn = () => {
           <FormField
           title="Email"
           value={form.email}
-          handleChange= {(value) => setForm({...form, email: value})}
+          handleChangeText={(e) => setForm({ ...form, email: e })}
           otherStyles='mt-5'
           keyBoardType='email-address'
           />
           <FormField
           title="Password"
           value={form.password}
-          handleChange= {(value) => setForm({...form, password: value})}
+          handleChangeText={(e) => setForm({ ...form, password: e })}
           otherStyles='mt-5'
-          
           />
+          <CustomButton
+          title= "Login"
+          handlePress={submit}
+          containerStyles='mt-7'
+          isLoading={isSumbitting}
+          />
+          <View className="justify-center pt-5 flex-row gap-2">
+            <Text className="text-sm text-gray-100">Don't have an account?</Text>
+            <Link href="sign-up" className="text-sm text-secondary-200">Sign up</Link>
+          </View>
         </View>
       </ScrollView>
     </SafeAreaView>
