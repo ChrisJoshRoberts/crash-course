@@ -3,6 +3,7 @@ import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { images } from "../../constants";
 import FormField from '../../components/FormField';
+import { useState } from 'react';
 
 const signIn = () => {
   const [form, setForm] = useState({
@@ -22,6 +23,16 @@ const signIn = () => {
           <FormField
           title="Email"
           value={form.email}
+          handleChange= {(value) => setForm({...form, email: value})}
+          otherStyles='mt-5'
+          keyBoardType='email-address'
+          />
+          <FormField
+          title="Password"
+          value={form.password}
+          handleChange= {(value) => setForm({...form, password: value})}
+          otherStyles='mt-5'
+          
           />
         </View>
       </ScrollView>
