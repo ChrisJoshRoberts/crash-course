@@ -5,7 +5,7 @@ import { images } from "../../constants";
 import FormField from '../../components/FormField';
 import CustomButton from '../../components/CustomButton';
 import { useState } from 'react';
-import { Link } from 'expo-router';
+import { Link, router } from 'expo-router';
 import { createUser } from '../../lib/appwrite';
 
 const signUp = () => {
@@ -13,22 +13,20 @@ const signUp = () => {
     email: '',
     password: '',
   })
-  const [isSumbitting, setisSumbitting] = useState(false)
+  const [isSubmitting, setisSubmitting] = useState(false)
   const submit = async () => {
     if(!form.username || !form.email || !form.password) {
       Alert.alert('Error', 'Please fill all fields');
     }
-    setisSumbitting(true);
+    setisSubmitting(true);
     try {
       const result = await createUser(form.email, form.password, form.username);
-
       // Set it to global state
-
       router.replace('home');
     } catch (error) {
       Alert.alert('Error', error.message);
     } finally {
-      setisSumbitting(false);
+      setisSubmitting(false);
     }
   }
   return (
@@ -64,7 +62,7 @@ const signUp = () => {
           title= "Sign up"
           handlePress={submit}
           containerStyles='mt-7'
-          isLoading={isSumbitting}
+          isLoading={isSubmitting}
           />
           <View className="justify-center pt-5 flex-row gap-2">
             <Text className="text-sm text-gray-100">Already have an account?</Text>
