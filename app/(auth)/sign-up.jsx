@@ -13,22 +13,24 @@ const signUp = () => {
     email: '',
     password: '',
   })
-  const [isSubmitting, setisSubmitting] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const submit = async () => {
     if(!form.username || !form.email || !form.password) {
       Alert.alert('Error', 'Please fill all fields');
     }
-    setisSubmitting(true);
+    setIsSubmitting(true);
     try {
       const result = await createUser(form.email, form.password, form.username);
       // Set it to global state
-      router.replace('home');
+      router.replace('/home');
     } catch (error) {
       Alert.alert('Error', error.message);
     } finally {
-      setisSubmitting(false);
+      setIsSubmitting(false);
     }
   }
+  
   return (
     <SafeAreaView className="bg-primary h-full">
       <ScrollView>
