@@ -1,6 +1,8 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, Image} from 'react-native'
 import React from 'react'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import images from '../../constants/images'
+import SearchInput from '../../components/SearchInput'
 
 const Home = () => {
   return (
@@ -18,6 +20,18 @@ const Home = () => {
             <Text className="font-pmedium text-sm text-gray-100">Welcome Back!</Text>
             <Text className="text-2xl text-white font-psemibold">Chris</Text>
           </View>
+          <View className="mt-1.5">
+            <Image
+            className="w-9 h-10"
+            resizeMode='contain'
+            source={images.logoSmall}
+            />
+          </View>
+        </View>
+        {/* Search bar */}
+        <SearchInput />
+        <View className="w-full flex-1 pt-5 pb-8">
+          <Text className="text-lg text-gray-100 font-pregular mb-3">Latest Videos</Text>
         </View>
       </View>
     )}
@@ -25,5 +39,4 @@ const Home = () => {
   </SafeAreaView>
   )
 }
-
 export default Home
