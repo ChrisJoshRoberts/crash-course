@@ -17,7 +17,9 @@ const SignUp = () => {
     password: "",
   });
 
-  const submit = () => {}
+  const submit = () => {
+    createUser()
+  }
 
   return (
     <SafeAreaView className="bg-primary h-full">

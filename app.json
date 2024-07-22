@@ -14,7 +14,7 @@
     },
     "ios": {
       "supportsTablet": true,
-      "package": "com.jsm.aura"
+      "package": "com.jsm.aoracr"
     },
     "android": {
       "adaptiveIcon": {
