@@ -10,15 +10,28 @@ import FormField from "../../components/FormField";
 import { useGlobalContext } from "../../context/GlobalProvider";
 
 const SignUp = () => {
-  const [isSubmitting, setSubmitting] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [form, setForm] = useState({
     username: "",
     email: "",
     password: "",
   });
 
-  const submit = () => {
-    createUser()
+  const submit = async () => {
+    if(!form.username || !form.email || !form.password) {
+      Alert.alert('Error', 'All fields are required');
+    }
+    setIsSubmitting(true);
+
+    try {
+      const result = await createUser(form.email, form.password, form.username);
+      // Set to global state
+      router.replace('/home');
+    } catch (error) {
+      Alert.alert('Error', error.message);
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
